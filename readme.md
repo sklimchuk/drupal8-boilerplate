@@ -6,7 +6,13 @@ different sites which each follow their own development practice, directory stru
 deployment guidelines, etc...
 
 Drupal boilerplate tries to simplify starting a new site by having the most common
-directory structures and files already included and set up.
+directory structures and files already included and set up. It contains initial structure and useful features for development Drupal project:
+* config and install script to setup tools for static code analys locally
+on developers machines (per project),
+* pre-commit hook to analys files affected in the commits
+(only custom code is taken in account),
+* settings per environment,
+* useful utils for writing casperjs autotests.
 
 ## Getting started 
 You can start by [downloading](https://code.adyax.com/common/drupal8-boilerplate/repository/archive.zip?ref=master)
@@ -28,21 +34,11 @@ read the readme inside the specific directory.
 * patches - Directory for patches
 * dev/enviroments/* - Per environment configurations. @see settings.php, services.yml, etc
 
-Merged content of _Awesome Repository_ https://code.adyax.com/itsekhmistro/awesome-repo .
-
-It contains initial structure and useful features for development Drupal project.
-
-These are:
-* config and install script to setup tools for static code analys locally
-on developers machines (per project),
-* pre-commit hook to analys files affected in the commits
-(only custom code is taken in account),
-* settings per environment,
-* useful utils for writing casperjs autotests.
-
 ## Installation instructions.
-1. LeadDev clone the repo into new Project repo.
+1. Lead Developer clone the repo into new Project repo.
 2. Dev clones the new Project repository and runs `composer install` in 
 the repo’s root directory.
 
 Have fun.
+
+Contributors: https://code.adyax.com/itsekhmistro/awesome-repo
