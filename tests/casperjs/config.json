@@ -1,0 +1,9 @@
+{
+  "load-images" : true,
+  "site-url" : "http://example.adyax-dev.net/",
+  "product-path" : "sample-product",
+  "search-path" : "search",
+  "http_auth_user" : "project",
+  "http_auth_pwd" : "password",
+  "reports_dir" : "/tmp/test_results/"
+}
