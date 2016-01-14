@@ -21,7 +21,7 @@ read the readme inside the specific directory.
 * results - This directory is just used to export test results to. A good example of this
    is when running drush test-run with the --xml option. You can export the xml
    to this directory for parsing by external tools.
-* scripts -  A directory for project-specific scripts.
+* scripts -  A directory for other non-drupal scripts.
 * test -  A directory for external tests. This is great for non drupal specific tests
  such as selenium, qunit, casperjs.
 * sync - Configuration directory
