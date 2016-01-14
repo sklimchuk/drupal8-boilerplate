@@ -26,4 +26,23 @@ read the readme inside the specific directory.
  such as selenium, qunit, casperjs.
 * sync - Configuration directory
 * patches - Directory for patches
-* salt.txt - Salt for one-time login links and cancel links, form tokens, etc., see settings.php
+* dev/enviroments/* - Per environment configurations. @see settings.php, services.yml, etc
+
+Merged content of _Awesome Repository_ https://code.adyax.com/itsekhmistro/awesome-repo .
+
+It contains initial structure and useful features for development Drupal project.
+
+These are:
+* config and install script to setup tools for static code analys locally
+on developers machines (per project),
+* pre-commit hook to analys files affected in the commits
+(only custom code is taken in account),
+* settings per environment,
+* useful utils for writing casperjs autotests.
+
+## Installation instructions.
+1. LeadDev clone the repo into new Project repo.
+2. Dev clones the new Project repository and runs `composer install` in 
+the repo’s root directory.
+
+Have fun.

@@ -1,0 +1,22 @@
+# Ignore configuration files that may contain sensitive information.
+.idea
+.vagrant
+backup
+index.html
+
+#Other
+vendor
+node_modules
+docroot/_ignore
+
+# OS specific mess.
+Thumbs.db
+.DS_Store
+
+#eclipse
+.project
+.buildpath
+/.settings
+
+#NetBeans
+nbproject
