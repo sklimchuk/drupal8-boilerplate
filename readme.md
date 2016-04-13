@@ -23,7 +23,7 @@ in that specific directory.
 Here's a breakdown for what each directory/file is used for. If you want to know more please
 read the readme inside the specific directory.
 
-* www -  Where your drupal root should start.
+* docroot -  Where your drupal root should start.
 * results - This directory is just used to export test results to. A good example of this
    is when running drush test-run with the --xml option. You can export the xml
    to this directory for parsing by external tools.
@@ -32,12 +32,15 @@ read the readme inside the specific directory.
  such as selenium, qunit, casperjs.
 * sync - Configuration directory
 * patches - Directory for patches
-* dev/enviroments/* - Per environment configurations. @see settings.php, services.yml, etc
+* enviroments/* - Per environment configurations. @see settings.php, services.yml, etc
 
 ## Installation instructions.
 1. Lead Developer clone the repo into new Project repo.
 2. Dev clones the new Project repository and runs `composer install` in 
 the repo’s root directory.
+
+## Enable pre-commit hooks
+1. Run "composer install" from the repository root
 
 Have fun.
 
