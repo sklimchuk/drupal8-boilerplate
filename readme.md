@@ -1,5 +1,8 @@
 # Drupal Boilerplate
 
+This project template provides a kickstart for managing your site
+dependencies with [Composer](https://getcomposer.org/).
+
 Drupal boilerplate is not a module. Instead it just serves as a directory structure for
 starting a new drupal site. The idea behind Drupal boilerplate came from working on so many
 different sites which each follow their own development practice, directory structure,
@@ -34,6 +37,13 @@ read the readme inside the specific directory.
 * patches - Directory for patches
 * enviroments/* - Per environment configurations. @see settings.php, services.yml, etc
 
+## Usage
+
+First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+
+> Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
+You might need to replace `composer` with `php composer.phar` (or similar) for your setup.
+
 ## Installation instructions.
 1. Lead Developer clone the repo into new Project repo.
 2. Dev clones the new Project repository and runs `composer install` in 
@@ -42,27 +52,13 @@ the repo’s root directory.
 ## Enable pre-commit hooks
 1. Run "composer install" from the repository root
 
-# Composer template for Drupal projects
 
-This project template should provide a kickstart for managing your site
-dependencies with [Composer](https://getcomposer.org/).
+## Composer Knowledge Base
 
 If you want to know how to use it as replacement for
 [Drush Make](https://github.com/drush-ops/drush/blob/master/docs/make.md) visit
 the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
 
-## Usage
-
-First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
-
-> Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
-You might need to replace `composer` with `php composer.phar` (or similar) for your setup.
-
-After that you can create the project:
-
-```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --stability dev --no-interaction
-```
 
 With `composer require ...` you can download new dependencies to your installation.
 
