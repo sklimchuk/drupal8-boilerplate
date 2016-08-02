@@ -27,5 +27,5 @@ if [ -d "$GIT_HOOKS_FOLDER" ]; then
   # Make files executable.
   # Used only for dev env.
   chmod +x .git/hooks/post-merge
-  ### End Git hooks ####
 fi
+### End Git hooks ####
