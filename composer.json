@@ -20,7 +20,7 @@
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.5.0",
         "drupal/core": "8.*",
-        "drupal/console": "~0.10",
+        "drupal/console": "^1",
         "drupal/devel": "1.*@dev",
         "drupal/admin_toolbar": "1.*@dev",
         "drupal/workbench_moderation": "1.x-dev",
@@ -41,7 +41,7 @@
     },
     "require-dev": {
         "neronmoon/scriptsdev": "^0.1.0",
-        "drush/drush": "~8.0",
+        "drush/drush": "~9.0",
         "behat/behat": "^3.1",
         "drupal/drupal-extension": "^3.2",
         "behat/mink": "~1.7",
