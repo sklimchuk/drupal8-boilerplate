@@ -14,6 +14,9 @@ index.html
 /docroot/themes/contrib
 /docroot/sites/default/files
 
+#Ignore local settings.
+settings.local.php
+
 # Ignore Composer-managed dependencies.
 #Other
 drush
