@@ -1,5 +1,13 @@
+stages:
+  - build
+  - test
+  - deploy
+  - performance
+
 sonar:
   stage: test
+  tags:
+    - sonarqube
   script:
     - sonar-scanner -Dsonar.host.url=http://sonar.adyax-dev.com -Dsonar.analysis.mode=preview -Dsonar.issuesReport.console.enable=true -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref=$CI_COMMIT_REF_NAME -Dsonar.gitlab.project_id=$CI_PROJECT_ID
   only:
@@ -47,3 +55,64 @@ review:
   only:
     - branches
   allow_failure: true
+
+#deploy_dev:
+#  environment:
+#    # Set a correct URL here.
+#    url: https://your-dev-site.adyax-dev.com
+#  stage: deploy
+#  script:
+#    -  bash ./scripts/ci/dev-deployment.sh
+#  only:
+#    - develop
+
+performance:
+  environment:
+    name: dev
+    # Set a correct URL here.
+    url: https://your-dev-site.adyax-dev.com
+  stage: performance
+  image:
+    name: sitespeedio/sitespeed.io:6.2.3
+    entrypoint: [""]
+  tags:
+    - docker
+  script:
+    - mkdir gitlab-exporter
+    - wget -O ./gitlab-exporter/index.js https://gitlab.com/gitlab-org/gl-performance/raw/master/index.js
+    - mkdir sitespeed-results
+    - pwd
+    # Important,
+    # 1. make sure you have configured Environment URLs in Gitlab.
+    # 2. make sure that you can access the website from gitlab-runer without BASIC HTTP AUTH.
+    - /start.sh --plugins.add ./gitlab-exporter --outputFolder sitespeed-results $CI_ENVIRONMENT_URL
+    - ls
+    - ls -l sitespeed-results/
+    - mv sitespeed-results/data/performance.json performance.json
+    - cat performance.json
+  artifacts:
+    paths:
+      - performance.json
+  only:
+    - develop
+  when: manual
+
+# Alternative way to run via docker in docker (dind) runner.
+# performance:
+#   stage: performance
+#   image: docker:git
+#   services:
+#     - docker:dind
+#   tags:
+#     - docker
+#   script:
+#     - mkdir gitlab-exporter
+#     - wget -O ./gitlab-exporter/index.js https://gitlab.com/gitlab-org/gl-performance/raw/master/index.js
+#     - mkdir sitespeed-results
+#     - docker run --shm-size=1g --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io --plugins.add ./gitlab-exporter --outputFolder sitespeed-results $CI_ENVIRONMENT_URL
+#     - mv sitespeed-results/data/performance.json performance.json
+#   artifacts:
+#     paths:
+#       - performance.json
+#   only:
+#     - develop
