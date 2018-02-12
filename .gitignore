@@ -13,25 +13,46 @@ index.html
 /docroot/profiles/contrib
 /docroot/themes/contrib
 /docroot/sites/default/files
+/docroot/.csslintrc
+/docroot/.editorconfig
+/docroot/.eslintignore
+/docroot/.eslintrc
+/docroot/.gitattributes
+/docroot/.htaccess
+/docroot/autoload.php
+/docroot/index.php
+/docroot/robots.txt
+/docroot/sites/default/default.services.yml
+/docroot/sites/default/default.settings.php
+/docroot/sites/default/services.yml
+/docroot/sites/development.services.yml
+/docroot/sites/example.settings.local.php
+/docroot/sites/example.sites.php
+/docroot/update.php
+/docroot/web.config
 
 #Ignore local settings.
 settings.local.php
 
 # Ignore Composer-managed dependencies.
-#Other
+## Other
 drush
 vendor
 node_modules
 docroot/_ignore
 
-# OS specific mess.
+## OS specific mess.
 Thumbs.db
 .DS_Store
 
-#eclipse
+## eclipse
 .project
 .buildpath
 /.settings
 
-#NetBeans
+## NetBeans
 nbproject
+
+## Local env setup
+/environments/local
+#go-pear.phar (Spicific case)
