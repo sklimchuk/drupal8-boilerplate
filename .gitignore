@@ -31,6 +31,9 @@ index.html
 /docroot/update.php
 /docroot/web.config
 
+#Ignore local settings.
+settings.local.php
+
 # Ignore Composer-managed dependencies.
 ## Other
 drush
