@@ -75,10 +75,12 @@
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsStream": "~1.2",
-        "phpunit/phpunit": "~4.8",
+        "phpunit/phpunit": "7.*",
         "symfony/css-selector": "~2.8",
         "squizlabs/php_codesniffer": "2.*",
-        "drupal/coder": "8.*"
+        "drupal/coder": "8.*",
+        "devinci/devinci-behat-extension": "dev-master",
+        "rdx/behat-variables": "^1.2"
     },
     "conflict": {
         "drupal/drupal": "*"
