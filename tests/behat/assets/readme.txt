@@ -1,0 +1,1 @@
+Here behat assets: screenshots and html dumps will be placed.

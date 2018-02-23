@@ -1,0 +1,94 @@
+default:
+  suites:
+    default:
+       paths:
+          features: '%paths.base%/features'
+       contexts:
+          - Thunder\behat\FeatureContext
+          - Devinci\DevinciExtension\Context\DebugContext:
+              asset_dump_path: "%paths.base%/../assets_dump/"
+          - Devinci\DevinciExtension\Context\JavascriptContext:
+              maximum_wait: 120
+          - Drupal\DrupalExtension\Context\DrupalContext
+          - Drupal\DrupalExtension\Context\BatchContext
+          - Drupal\DrupalExtension\Context\DrushContext
+          - Drupal\DrupalExtension\Context\MessageContext
+          - Drupal\DrupalExtension\Context\MinkContext
+  extensions:
+    rdx\behatvars\BehatVariablesExtension: ~
+    Behat\MinkExtension:
+      files_path: '%paths.base%/files/'
+      # Adjust "base_url" to Your website.
+      base_url: 'https://example.com'
+      goutte: ~
+      # Use goutte (basic PHP browser, super fast) as the default driver.
+      default_session: goutte
+      # For real browser testing and tests requiring JS use selenium2 driver.
+      # Tag features/scenarious with @javascript to use the selenium2 driver.
+      javascript_session: selenium2
+      # Configure browser to be used. Browser must be available on wd_host.
+      # Stick with chrome by default. It's 2x faster than firefox or phantomjs (your results may vary).
+      # browser_name: chrome
+      selenium2:
+        wd_host: http://127.0.0.1:4444/wd/hub
+        # capabilities: { "browser": "chrome", "version": "*" }
+    Drupal\DrupalExtension:
+      blackbox: ~
+      region_map:
+        Teaser: '#edit-field-teaser-media-wrapper'
+        Content: '.region-content'
+        Paragraphs: '#edit-field-paragraphs-wrapper'
+        Right Sidebar: '.layout-region-node-secondary'
+        Footer Bar: '.layout-region-node-footer'
+        Search Results: '.block-result-list-item'
+        Search Result Price: '.block-result-list-item .price'
+      selectors:
+        message_selector: '.messages'
+        error_message_selector: '.messages.messages-error'
+        success_message_selector: '.messages.messages-status'
+        login_form_selector: 'form#user-login-form'
+        logged_in_selector: 'li.logout'
+      text:
+        username_field: "edit-name"
+        password_field: "edit-pass"
+        log_in: "edit-submit"
+        log_out: "Logout"
+
+# To run test only for remote profile use:
+# ../../vendor/behat/behat/bin/behat --profile=remote
+remote:
+  suites:
+    default:
+       filters:
+         tags: "@remote"
+  extensions:
+    Behat\MinkExtension:
+      # Adjust "base_url" to Your website.
+      base_url: 'https://example.com'
+
+# To run test only for drupal_api profile use:
+# ../../vendor/behat/behat/bin/behat --profile=drupal_api
+drupal_api:
+  extensions:
+    Behat\MinkExtension:
+      # Adjust "base_url" to Local installed Website.
+      base_url: ''
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: 'drupal'
+      drush:
+        root: '%paths.base%/../../docroot'
+      drupal:
+        # Adjust "drupal_root" to point on local installation docroot.
+        # It can be full path or relative path from location of Behat YAML configuration file.
+        drupal_root: '../../docroot'
+
+indocker:
+  extensions:
+    rdx\behatvars\BehatVariablesExtension: ~
+    Behat\MinkExtension:
+      # Adjust "base_url" to Your website (environment that you gonna test).
+      base_url: ''
+      javascript_session: selenium2
+      selenium2:
+        wd_host: http://selenium_firefox:4444/wd/hub
