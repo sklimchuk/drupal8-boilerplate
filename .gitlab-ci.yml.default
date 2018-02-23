@@ -97,7 +97,7 @@ behat_tests_on_dev:
   environment:
     name: dev
     # Replace the following line with correct URL of the DEV
-    url: https://bbhotel-digital-dev.herokuapp.com/en
+    url: https://your-dev-site.adyax-dev.com
   image: docker:latest
   services:
     - docker:dind
