@@ -12,6 +12,8 @@ LINK_NAME=vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Drupal
 LINK_NAME_DP=vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/DrupalPractice
 # Link folder.
 LINK_FOLDER=vendor/squizlabs/php_codesniffer
+# Git hooks folder
+GIT_HOOKS_FOLDER=.git/hooks
 
 if [ -d "$LINK_FOLDER" ]; then
   # Create symlink Drupal standard.
@@ -20,15 +22,18 @@ if [ -d "$LINK_FOLDER" ]; then
   # Creates symlink to DrupalPractice.
   ln -sf ${TARGET_DP} ${LINK_NAME_DP}
 
-  # Pre commit hook
-  cp scripts/tools/pre-commit .git/hooks/pre-commit
-  # Make files executable.
-  chmod +x .git/hooks/pre-commit
+  ### Git hooks ####
+  if [ -d "$GIT_HOOKS_FOLDER" ]; then
+    # Pre commit hook
+    cp scripts/tools/pre-commit .git/hooks/pre-commit
+    # Make files executable.
+    chmod +x .git/hooks/pre-commit
+  fi
+  ### End Git hooks ####
 fi
 ### End Create symlink ####
 
 ### Git hooks ####
-GIT_HOOKS_FOLDER=.git/hooks
 if [ -d "$GIT_HOOKS_FOLDER" ]; then
   # Post merge hook.
   cp scripts/tools/post-merge .git/hooks/post-merge
