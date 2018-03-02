@@ -111,5 +111,18 @@ behat_tests_on_dev:
     - docker run -t --entrypoint="/src/run_tests_in_docker.sh" -v $PWD:/src --link friendly_chatterjee itsekhmistro/docker-behat
   # when: manual
   only:
-    - develop
+    - schedules
   allow_failure: true
+
+k6_verify_dev:
+  stage: post_deploy
+  image: docker:latest
+  services:
+    - docker:dind
+  tags:
+    - dind
+  script:
+    - docker run -i loadimpact/k6 run -< tests/k6/main.js
+    - docker run -i loadimpact/k6 run -< tests/k6/api_test.js
+  only:
+    - schedules
