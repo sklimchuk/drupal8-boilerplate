@@ -37,6 +37,17 @@ read the readme inside the specific directory.
 * patches - Directory for patches
 * enviroments/* - Per environment configurations. @see settings.php, services.yml, etc
 
+## Docker integration
+
+The docker integration is based on https://github.com/wodby/docker4drupal.
+Please see original documentation if you have any questions https://wodby.com/stacks/drupal/docs/local/ .
+
+Steps todo during project initiation.
+* Rename the file `.env.default` to `.env`
+* Update configuration in the file `.env` ( project_name, versions of images, etc)
+* Update `environments/docker/settings.php` with correct DB name, add additional local configuration if required.
+* Use `make up`, `make down` to start and stop Docker services (see docker.mk for details)
+
 ## Usage
 
 First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
