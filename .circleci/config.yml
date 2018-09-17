@@ -37,6 +37,6 @@ jobs:
       - run: 
           name: Test with Behat
           command: |
-            #bash ./tests/behat/run-behat.sh
-            bash ./tests/behat/run_tests_in_docker.sh
+            bash ./tests/behat/run-behat.sh
+            #bash ./tests/behat/run_tests_in_docker.sh
             
